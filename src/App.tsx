@@ -9,19 +9,19 @@ import { getFormattedWeatherData } from './services/weatherService';
 // import UilReact from '@iconscout/react-unicons/icons/uil-react';
 
 export const App = () => {
-  const fetchWeather = async () => {
-    const data = await getFormattedWeatherData('wroclaw');
-    console.log(data);
-  };
-
-  fetchWeather();
-
-  // const testWeather = async () => {
-  //   const data = await test('weather', { q: 'london' });
+  // const fetchWeather = async () => {
+  //   const data = await getFormattedWeatherData('wroclaw');
   //   console.log(data);
   // };
 
-  // testWeather();
+  // fetchWeather();
+
+  const testWeather = async () => {
+    const data = await getFormattedWeatherData({ q: 'london' });
+    console.log('test', data);
+  };
+
+  testWeather();
 
   return (
     <div className="mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400">
