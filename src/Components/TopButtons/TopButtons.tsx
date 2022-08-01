@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TopButtons() {
+export const TopButtons = () => {
   const cities = [
     {
       id: 1,
@@ -37,6 +37,4 @@ function TopButtons() {
       ))}
     </div>
   );
-}
-
-export default TopButtons;
+};

@@ -21,6 +21,15 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'react/function-component-definition': [
+      2,
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
+
+    'import/extensions': 'off',
     'import/prefer-default-export': 'off',
     'react/jsx-filename-extension': [
       2,
@@ -44,6 +53,10 @@ module.exports = {
     '@typescript-eslint/semi': ['error'],
   },
   settings: {
+    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
     'import/resolver': {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],

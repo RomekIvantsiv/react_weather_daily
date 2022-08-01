@@ -1,2 +1,1 @@
-// @ts-ignore
-export * from './Forecast.tsx';
+export * from './Forecast';

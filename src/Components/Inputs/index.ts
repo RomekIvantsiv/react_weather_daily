@@ -1,2 +1,1 @@
-// @ts-ignore
-export * from './Inputs.tsx';
+export * from './Inputs';

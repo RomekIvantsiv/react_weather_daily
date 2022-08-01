@@ -1,18 +1,28 @@
 import React from 'react';
-// @ts-ignore
-import { Forecast } from './Components/Forecast/Forecast.tsx';
-// @ts-ignore
-import Inputs from './Components/Inputs/Inputs.tsx';
-// @ts-ignore
-import TemperatureAndDetails from './Components/TemperatureAndDetails/TemperatureAndDetails.tsx';
-// @ts-ignore
-import TimeAndLocation from './Components/TimeAndLocation/TimeAndLocation.tsx';
-// @ts-ignore
-import TopButtons from './Components/TopButtons/TopButtons.tsx';
-// @ts-ignore
+import { Forecast } from './Components/Forecast';
+import { Inputs } from './Components/Inputs';
+import { TemperatureAndDetails } from './Components/TemperatureAndDetails';
+import { TimeAndLocation } from './Components/TimeAndLocation';
+import { TopButtons } from './Components/TopButtons';
+import { getFormattedWeatherData } from './services/weatherService';
+
 // import UilReact from '@iconscout/react-unicons/icons/uil-react';
 
-function App() {
+export const App = () => {
+  const fetchWeather = async () => {
+    const data = await getFormattedWeatherData('wroclaw');
+    console.log(data);
+  };
+
+  fetchWeather();
+
+  // const testWeather = async () => {
+  //   const data = await test('weather', { q: 'london' });
+  //   console.log(data);
+  // };
+
+  // testWeather();
+
   return (
     <div className="mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400">
       <TopButtons />
@@ -24,6 +34,4 @@ function App() {
       <Forecast title="hourly forecast" />
     </div>
   );
-}
-
-export default App;
+};

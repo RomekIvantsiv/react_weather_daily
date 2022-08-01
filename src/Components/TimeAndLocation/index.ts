@@ -1,2 +1,1 @@
-// @ts-ignore
-export * from './TimeAndLocation.tsx';
+export * from './TimeAndLocation';

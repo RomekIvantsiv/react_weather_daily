@@ -1,2 +1,1 @@
-// @ts-ignore
-export * from './TopButtons.tsx';
+export * from './TopButtons';
