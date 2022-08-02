@@ -10,7 +10,7 @@ import { searchParamsType, WeatherState } from './react-app-env.d';
 import { getFormattedWeatherData } from './services/weatherService';
 
 export const App = () => {
-  const [query, setQuery] = useState<searchParamsType>({ q: 'berlin' });
+  const [query, setQuery] = useState<searchParamsType>({ q: 'warsaw' });
   const [units, setUnits] = useState('metric');
   const [weather, setWeather] = useState<WeatherState | null>(null);
 
@@ -45,7 +45,7 @@ export const App = () => {
   };
 
   return (
-    <div className={`${formatBackgound()} mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 `}>
+    <div className={`${formatBackgound()} mx-auto max-w-screen-md py-5 px-32 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 mt-0`}>
       <TopButtons onChangeQuery={onChangeQuery} />
       <Inputs units={units} onChangeQuery={onChangeQuery} onChangeUnits={onChangeUnits} />
 

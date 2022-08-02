@@ -1,9 +1,34 @@
 # Getting Started with Create React App
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Weather React application
+## [DEMO LINK](https://romekivantsiv.github.io/react_weather_daily/)
 
+### What can You do in this app? 
+* By default you will see the current weather forecast for the Warsaw.
+* You can click on the city on the top and get the current weather in that city (hourly weather, daily weather and all the details, and of course, that's not all :)
+* Just type  the city you want in an input field, press Enter or click the 🔎 and you will get the weather for your city (if city not found you'll see the message)...and of course that's also not all :)
+* If you click the `location icon` near the 🔎, you'll see the weather where you are located in (just make sure that browser have access to your geolocation)...and as you might have guessed, that's also not all :)
+* You can choose in which format you want to see the weather (Celsius or Fahrenheit), just click `°C` or `°F`
+* If the temperature is higher than `30°` the background will change.
+
+## Technology stack:
+* React
+* TypeScript
+* For styling the Tailwind library
+
+## Local development
+
+### Dependencies
+* Node v14.19.1 and higher
+* NPM v6.14.4 and higher
+
+### Installing
+* Fork and clone this repository
+* Run `npm install` in your terminal
+* Run `npm start`
+
+## Available Scripts
 In the project directory, you can run:
 
 ### `npm start`

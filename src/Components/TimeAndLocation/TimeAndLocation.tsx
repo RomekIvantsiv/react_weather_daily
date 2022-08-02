@@ -19,7 +19,7 @@ export const TimeAndLocation:React.FC<Props> = ({ weather }) => {
         </p>
       </div>
       <div className="flex items-center justify-center my-3">
-        <p className="text-white text-3xl font-medium">
+        <p className="text-white text-3xl font-medium py-3">
           {`${name}, ${country}`}
         </p>
       </div>
