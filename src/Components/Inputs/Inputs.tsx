@@ -23,7 +23,7 @@ export const Inputs = () => (
       <button
         type="button"
         name="metric"
-        className="text-xl text-white font-light"
+        className="text-xl text-white font-light transition ease-out hover:scale-125"
       >
         °C
       </button>
@@ -31,7 +31,7 @@ export const Inputs = () => (
       <button
         type="button"
         name="imperial"
-        className="text-xl text-white font-light"
+        className="text-xl text-white font-light transition ease-out hover:scale-125"
       >
         °F
       </button>

@@ -1,5 +1,3 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable prefer-template */
 /* eslint-disable camelcase */
 // @ts-ignore
 import { DateTime } from 'luxon';
@@ -48,40 +46,45 @@ const formatCurrentWeather = (data: WeatherDataFromServer) => {
   };
 };
 
-const formatToLocalTime = (secs: number, zone: number, format = "cccc, dd LLL yyyy' | Local time: 'hh:mm a") => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
+export const formatToLocalTime = (secs: number, zone: number, format = "cccc, dd LLL yyyy' | Local time: 'hh:mm a"): string => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
 
 const formatForecastWeather = (data: DailyWeatherData) => {
-  let { timezone, daily, hourly } = data;
-  daily = daily.slice(1, 6).map((oneDay) => {
+  const { timezone, daily, hourly } = data;
+
+  const dailyResult = daily.slice(1, 6).map((oneDay) => {
     return {
       title: formatToLocalTime(oneDay.dt, timezone, 'ccc'),
       temp: oneDay.temp.day,
+      icon: oneDay.weather[0].icon,
     };
   });
+
+  const hourlyResult = hourly.slice(1, 6).map((oneHour) => {
+    return {
+      title: formatToLocalTime(oneHour.dt, timezone, 'hh:mm a'),
+      temp: oneHour.temp,
+      icon: oneHour.weather[0].icon,
+    };
+  });
+
+  return { timezone, dailyResult, hourlyResult };
 };
 
 export const getFormattedWeatherData = async (searchParams: searchParamsType) => {
-  const response = await getWeatherData('weather', searchParams);
-  const formattedWeatherData = formatCurrentWeather(response);
+  const responseWeather = await getWeatherData('weather', searchParams);
+  const formattedWeatherData = formatCurrentWeather(responseWeather);
 
   const { lat, lon } = formattedWeatherData;
 
-  const formattedForecastWeather = await getWeatherData('onecall', {
+  const responseOneCall = await getWeatherData('onecall', {
     lat, lon, exclude: 'current,minutely,alerts', units: searchParams.units,
   });
 
-  console.log(formattedForecastWeather);
+  const formattedForecastWeather = formatForecastWeather(responseOneCall);
 
-  return formattedWeatherData;
+  const result = { ...formattedWeatherData, ...formattedForecastWeather };
+
+  return result;
 };
 
-// export const getFormattedWeatherData = async (city: string) => {
-//   const response = await getWeatherData(city);
-//   const formattedCurrentWeatherData = formatCurrentWeather(response);
-
-//   // const { lat, lon } = formattedCurrentWeatherData;
-
-//   // const formattedForecastWeather = await
-
-//   return formattedCurrentWeatherData;
-// };
+export const iconUrlFromCode = (code: string) => `https://openweathermap.org/img/wn/${code}@2x.png`;

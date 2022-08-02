@@ -1,16 +1,28 @@
 import React from 'react';
+import { WeatherState } from '../../react-app-env.d';
+import { formatToLocalTime } from '../../services/weatherService';
 
-export const TimeAndLocation = () => (
-  <div>
-    <div className="flex items-center justify-center my-6">
-      <p className="text-white text-xl font-extralight">
-        Monday, 1 Aug 2022 | Local time: 10:38 AM
-      </p>
+interface Props {
+  weather: WeatherState;
+}
+
+export const TimeAndLocation:React.FC<Props> = ({ weather }) => {
+  const {
+    dt, timezone, name, country,
+  } = weather;
+
+  return (
+    <div>
+      <div className="flex items-center justify-center my-6">
+        <p className="text-white text-xl font-extralight">
+          {formatToLocalTime(dt, timezone)}
+        </p>
+      </div>
+      <div className="flex items-center justify-center my-3">
+        <p className="text-white text-3xl font-medium">
+          {`${name}, ${country}`}
+        </p>
+      </div>
     </div>
-    <div className="flex items-center justify-center my-3">
-      <p className="text-white text-3xl font-medium">
-        Wroclaw, POL
-      </p>
-    </div>
-  </div>
-);
+  );
+};

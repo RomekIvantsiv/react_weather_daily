@@ -40,6 +40,18 @@ export interface HourlyWeather {
   weather: WeatherKey[]
 }
 
+export interface FormattedHourlyWeather {
+  title: string,
+  temp: number,
+  icon: string,
+}
+
+export interface FormattedDailyWeather {
+  title: string,
+  temp: number,
+  icon: string,
+}
+
 export interface DailyWeather {
   dt: number,
   sunrise: number,
@@ -61,6 +73,7 @@ export interface DailyWeather {
   },
   humidity: number,
   wind_speed: number,
+  weather: WeatherKey[],
 }
 
 export interface DailyWeatherData {
@@ -70,4 +83,25 @@ export interface DailyWeatherData {
   timezone_offset: string,
   hourly: HourlyWeather[]
   daily: DailyWeather[]
+}
+
+export interface WeatherState {
+  country: string,
+  details: string,
+  dt: number,
+  feels_like: number,
+  humidity: number,
+  icon: string,
+  lat: number,
+  lon: number,
+  name: string,
+  speed: number,
+  sunrise: number,
+  sunset: number,
+  temp: number,
+  temp_max: number,
+  temp_min: number,
+  timezone: number,
+  dailyResult: FormattedDailyWeather[],
+  hourlyResult: FormattedHourlyWeather[],
 }
