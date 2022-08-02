@@ -2,6 +2,7 @@
   "name": "react_weather_app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://RomekIvantsiv.github.io",
   "dependencies": {
     "@iconscout/react-unicons": "^1.1.6",
     "@testing-library/jest-dom": "^5.16.4",
@@ -27,7 +28,9 @@
     "lint:html": "linthtml ./src/index.html",
     "lint:css": "stylelint **/*.css",
     "lint:js": "eslint ./src",
-    "lint": "concurrently \"npm run lint:html\" \"npm run lint:css\" \"npm run lint:js\""
+    "lint": "concurrently \"npm run lint:html\" \"npm run lint:css\" \"npm run lint:js\"",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
