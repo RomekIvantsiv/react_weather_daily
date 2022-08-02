@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Forecast } from './Components/Forecast';
 import { Inputs } from './Components/Inputs';
 import { TemperatureAndDetails } from './Components/TemperatureAndDetails';
@@ -34,7 +36,7 @@ export const App = () => {
       return 'from-cyan-700 to-blue-700';
     }
 
-    const threshold = units === 'metric' ? 25 : 60;
+    const threshold = units === 'metric' ? 30 : 60;
     if (weather.temp <= threshold) {
       return 'from-cyan-700 to-blue-700';
     }
@@ -43,7 +45,7 @@ export const App = () => {
   };
 
   return (
-    <div className={`mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400 ${formatBackgound()}`}>
+    <div className={`${formatBackgound()} mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 `}>
       <TopButtons onChangeQuery={onChangeQuery} />
       <Inputs units={units} onChangeQuery={onChangeQuery} onChangeUnits={onChangeUnits} />
 
@@ -56,6 +58,7 @@ export const App = () => {
         </>
       )}
 
+      <ToastContainer autoClose={2000} theme="colored" position="top-right" />
     </div>
   );
 };

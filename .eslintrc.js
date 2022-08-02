@@ -48,10 +48,18 @@ module.exports = {
 
     // TypeScript
     '@typescript-eslint/no-unused-vars': ['error'],
-    '@typescript-eslint/camelcase': 0,
     '@typescript-eslint/explicit-module-boundary-types': 0,
     '@typescript-eslint/ban-types': 0,
     '@typescript-eslint/semi': ['error'],
+    camelcase: 'off',
+    '@typescript-eslint/camelcase': ['off'],
+    '@typescript-eslint/naming-convention': [
+      'off',
+      {
+        selector: 'default',
+        format: null,
+      },
+    ],
   },
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],

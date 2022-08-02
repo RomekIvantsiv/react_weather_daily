@@ -1,6 +1,6 @@
-/* eslint-disable camelcase */
 // @ts-ignore
 import { DateTime } from 'luxon';
+import { toast } from 'react-toastify';
 import {
   DailyWeatherData,
   searchParamsType,
@@ -14,7 +14,12 @@ export const getWeatherData = async (infoType: string, searchParams: object) => 
   const url = new URL(`${BASE_URL}/${infoType}`);
   // @ts-ignore
   url.search = new URLSearchParams({ ...searchParams, appid: API_KEY });
+
   const response = await fetch(url);
+
+  if (response.statusText === 'Not Found') {
+    toast.error('The city was not found');
+  }
 
   return response.json();
 };

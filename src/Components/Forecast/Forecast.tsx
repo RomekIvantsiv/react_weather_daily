@@ -1,4 +1,3 @@
-/* eslint-disable react/function-component-definition */
 import React from 'react';
 import { FormattedHourlyWeather } from '../../react-app-env.d';
 import { iconUrlFromCode } from '../../services/weatherService';
