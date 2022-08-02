@@ -105,3 +105,10 @@ export interface WeatherState {
   dailyResult: FormattedDailyWeather[],
   hourlyResult: FormattedHourlyWeather[],
 }
+
+export interface searchParamsType {
+  units?: string,
+  q?: string,
+  lat? :number,
+  lon? : number,
+}

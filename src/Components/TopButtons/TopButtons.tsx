@@ -1,6 +1,10 @@
 import React from 'react';
 
-export const TopButtons = () => {
+interface Props {
+  onChangeQuery: (newQuery: { q: string }) => void
+}
+
+export const TopButtons:React.FC<Props> = ({ onChangeQuery }) => {
   const cities = [
     {
       id: 1,
@@ -31,6 +35,9 @@ export const TopButtons = () => {
           key={city.id}
           type="button"
           className="text-white text-lg font-medium"
+          onClick={() => {
+            onChangeQuery({ q: city.title });
+          }}
         >
           {city.title}
         </button>

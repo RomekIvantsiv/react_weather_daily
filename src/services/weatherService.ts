@@ -3,13 +3,9 @@
 import { DateTime } from 'luxon';
 import {
   DailyWeatherData,
+  searchParamsType,
   WeatherDataFromServer,
 } from '../react-app-env.d';
-
-interface searchParamsType {
-  units: string,
-  q: string,
-}
 
 const API_KEY = 'a2b2aaf092bfed49f469662147c5bc42';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
