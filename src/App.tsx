@@ -58,7 +58,7 @@ export const App = () => {
         </>
       )}
 
-      <ToastContainer autoClose={2000} theme="colored" position="top-right" />
+      <ToastContainer autoClose={3000} theme="colored" position="top-right" />
     </div>
   );
 };
