@@ -33,7 +33,7 @@ export const App = () => {
     }
 
     const threshold = units === 'metric' ? 30 : 60;
-    if (weather.temp <= threshold) {
+    if (weather.temp <= threshold && units === 'metric') {
       return 'from-cyan-700 to-blue-700';
     }
 
