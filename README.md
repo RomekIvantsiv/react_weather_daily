@@ -14,8 +14,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Technology stack:
 * React
+* Redux, Redux Toolkit
 * TypeScript
 * For styling the Tailwind library
+* React Toastify, React Unicons, Luxon
 
 ## Local development
 
