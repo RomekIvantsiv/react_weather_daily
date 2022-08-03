@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Forecast } from './Components/Forecast';
@@ -6,26 +7,21 @@ import { Inputs } from './Components/Inputs';
 import { TemperatureAndDetails } from './Components/TemperatureAndDetails';
 import { TimeAndLocation } from './Components/TimeAndLocation';
 import { TopButtons } from './Components/TopButtons';
-import { searchParamsType, WeatherState } from './react-app-env.d';
 import { getFormattedWeatherData } from './services/weatherService';
+import { getQuerySelector, getUnitsSelector, getWeatherSelector } from './store/selectors';
+import { setWeather } from './store/store';
 
 export const App = () => {
-  const [query, setQuery] = useState<searchParamsType>({ q: 'warsaw' });
-  const [units, setUnits] = useState('metric');
-  const [weather, setWeather] = useState<WeatherState | null>(null);
+  const query = useSelector(getQuerySelector);
+  const units = useSelector(getUnitsSelector);
+  const weather = useSelector(getWeatherSelector);
 
-  const onChangeQuery = (newQuery: searchParamsType) => {
-    setQuery(newQuery);
-  };
-
-  const onChangeUnits = (newUnits: string) => {
-    setUnits(newUnits);
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getWeatherFromServer = async () => {
       const data = await getFormattedWeatherData({ ...query, units });
-      setWeather(data);
+      dispatch(setWeather(data));
     };
 
     getWeatherFromServer();
@@ -46,13 +42,13 @@ export const App = () => {
 
   return (
     <div className={`${formatBackgound()} mx-auto max-w-screen-md py-5 px-32 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 mt-0`}>
-      <TopButtons onChangeQuery={onChangeQuery} />
-      <Inputs units={units} onChangeQuery={onChangeQuery} onChangeUnits={onChangeUnits} />
+      <TopButtons />
+      <Inputs />
 
       {weather && (
         <>
-          <TimeAndLocation weather={weather} />
-          <TemperatureAndDetails weather={weather} />
+          <TimeAndLocation />
+          <TemperatureAndDetails />
           <Forecast title="hourly forecast" items={weather.hourlyResult} />
           <Forecast title="daily forecast" items={weather.dailyResult} />
         </>

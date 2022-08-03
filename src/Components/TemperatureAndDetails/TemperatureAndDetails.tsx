@@ -1,16 +1,22 @@
 import React from 'react';
-import { WeatherState } from '../../react-app-env.d';
+import { useSelector } from 'react-redux';
 import { formatToLocalTime, iconUrlFromCode } from '../../services/weatherService';
+import { getWeatherSelector } from '../../store/selectors';
+import { Loader } from '../Loader';
 
 const {
   UilTemperature, UilTear, UilWind, UilSun, UilSunset,
 } = require('@iconscout/react-unicons');
 
-interface Props {
-  weather: WeatherState
-}
+export const TemperatureAndDetails:React.FC = () => {
+  const weather = useSelector(getWeatherSelector);
 
-export const TemperatureAndDetails:React.FC<Props> = ({ weather }) => {
+  if (!weather) {
+    return (
+      <Loader />
+    );
+  }
+
   const {
     details, icon, temp, temp_min, temp_max, sunrise, sunset, speed, humidity, feels_like, timezone,
   } = weather;

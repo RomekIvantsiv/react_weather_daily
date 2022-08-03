@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { searchParamsType } from '../../react-app-env.d';
+import { getUnitsSelector } from '../../store/selectors';
+import { setQuery, setUnits } from '../../store/store';
 
 const { UilSearch, UilLocationPoint } = require('@iconscout/react-unicons');
 
-interface Props {
-  units: string
-  onChangeQuery: (newQuery: searchParamsType) => void
-  onChangeUnits: (newUnits: string) => void
-}
-
-export const Inputs:React.FC<Props> = ({ units, onChangeQuery, onChangeUnits }) => {
+export const Inputs:React.FC = () => {
   const [city, setCity] = useState('');
+  const dispatch = useDispatch();
+  const units = useSelector(getUnitsSelector);
 
   const handleSearchClick = () => {
     if (city !== '') {
-      onChangeQuery({ q: city });
+      dispatch(setQuery({ q: city }));
       setCity('');
     }
   };
@@ -27,7 +25,7 @@ export const Inputs:React.FC<Props> = ({ units, onChangeQuery, onChangeUnits }) 
         toast.success('Location fetched');
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
-        onChangeQuery({ lat, lon });
+        dispatch(setQuery({ lat, lon }));
       });
     }
   };
@@ -36,7 +34,7 @@ export const Inputs:React.FC<Props> = ({ units, onChangeQuery, onChangeUnits }) 
     const selectedUnit = event.currentTarget.name;
 
     if (units !== selectedUnit) {
-      onChangeUnits(selectedUnit);
+      dispatch(setUnits(selectedUnit));
     }
   };
 

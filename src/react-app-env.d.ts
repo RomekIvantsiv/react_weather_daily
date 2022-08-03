@@ -112,3 +112,15 @@ export interface searchParamsType {
   lat? :number,
   lon? : number,
 }
+
+interface HeaderCity {
+  id: number,
+  title: string,
+}
+
+export interface State {
+  weather: WeatherState | null,
+  query: searchParamsType,
+  units: string,
+  cities: HeaderCity[],
+}

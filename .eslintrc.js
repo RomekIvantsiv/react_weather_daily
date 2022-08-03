@@ -21,6 +21,7 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'no-shadow': 'off',
     'arrow-body-style': 'off',
     'react/function-component-definition': [
       2,

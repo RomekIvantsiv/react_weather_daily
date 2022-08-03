@@ -1,12 +1,18 @@
 import React from 'react';
-import { WeatherState } from '../../react-app-env.d';
+import { useSelector } from 'react-redux';
 import { formatToLocalTime } from '../../services/weatherService';
+import { getWeatherSelector } from '../../store/selectors';
+import { Loader } from '../Loader';
 
-interface Props {
-  weather: WeatherState;
-}
+export const TimeAndLocation:React.FC = () => {
+  const weather = useSelector(getWeatherSelector);
 
-export const TimeAndLocation:React.FC<Props> = ({ weather }) => {
+  if (!weather) {
+    return (
+      <Loader />
+    );
+  }
+
   const {
     dt, timezone, name, country,
   } = weather;
