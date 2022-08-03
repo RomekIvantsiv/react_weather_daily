@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-// @ts-ignore
-import { UilSearch, UilLocationPoint } from '@iconscout/react-unicons';
 import { toast } from 'react-toastify';
 import { searchParamsType } from '../../react-app-env.d';
+
+const { UilSearch, UilLocationPoint } = require('@iconscout/react-unicons');
 
 interface Props {
   units: string

@@ -1,11 +1,10 @@
 import React from 'react';
-
-import {
-  UilTemperature, UilTear, UilWind, UilSun, UilSunset,
-  // @ts-ignore
-} from '@iconscout/react-unicons';
 import { WeatherState } from '../../react-app-env.d';
 import { formatToLocalTime, iconUrlFromCode } from '../../services/weatherService';
+
+const {
+  UilTemperature, UilTear, UilWind, UilSun, UilSunset,
+} = require('@iconscout/react-unicons');
 
 interface Props {
   weather: WeatherState

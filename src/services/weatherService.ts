@@ -1,5 +1,3 @@
-// @ts-ignore
-import { DateTime } from 'luxon';
 import { toast } from 'react-toastify';
 import {
   DailyWeatherData,
@@ -7,13 +5,14 @@ import {
   WeatherDataFromServer,
 } from '../react-app-env.d';
 
+const { DateTime } = require('luxon');
+
 const API_KEY = 'a2b2aaf092bfed49f469662147c5bc42';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
 export const getWeatherData = async (infoType: string, searchParams: object) => {
   const url = new URL(`${BASE_URL}/${infoType}`);
-  // @ts-ignore
-  url.search = new URLSearchParams({ ...searchParams, appid: API_KEY });
+  url.search = new URLSearchParams({ ...searchParams, appid: API_KEY }).toString();
 
   const response = await fetch(url);
 
