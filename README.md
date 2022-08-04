@@ -4,6 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # Weather React application
 ## [DEMO LINK](https://romekivantsiv.github.io/react_weather_daily/)
 
+## Description
+In a few words, this is an application that shows the weather forecast and details in any city (read the full instruction below).
+
 ### What can You do in this app? 
 * By default you will see the current weather forecast for the Warsaw.
 * You can click on the city on the top and get the current weather in that city (hourly weather, daily weather and all the details, and of course, that's not all :)
