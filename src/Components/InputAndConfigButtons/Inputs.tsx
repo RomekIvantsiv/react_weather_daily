@@ -6,7 +6,7 @@ import { setQuery, setUnits } from '../../store/store';
 
 const { UilSearch, UilLocationPoint } = require('@iconscout/react-unicons');
 
-export const Inputs:React.FC = () => {
+export const InputAndConfigButtons:React.FC = () => {
   const [city, setCity] = useState('');
   const dispatch = useDispatch();
   const units = useSelector(getUnitsSelector);
@@ -48,7 +48,7 @@ export const Inputs:React.FC = () => {
       >
         <input
           type="text"
-          className="text-xl font-light p-2 w-full shadow-xl focus:outline-none capitalize "
+          className="phone:text-lg phonexs:text-sm font-light p-2 w-full phone:h-11 phonexs:h-7 shadow-xl focus:outline-none capitalize "
           placeholder="Search for city..."
           value={city}
           onKeyDown={(event) => {
@@ -64,8 +64,7 @@ export const Inputs:React.FC = () => {
           type="submit"
         >
           <UilSearch
-            size={25}
-            className="text-white cursor-pointer transition ease-out hover:scale-125"
+            className="text-white phone:h-7 phone:w-7 phonexs:h-6 phonexs:w-6 cursor-pointer transition ease-out hover:scale-125"
             onClick={handleSearchClick}
           />
         </button>
@@ -74,8 +73,7 @@ export const Inputs:React.FC = () => {
           type="submit"
         >
           <UilLocationPoint
-            size={25}
-            className="text-white cursor-pointer transition ease-out hover:scale-125"
+            className="text-white phone:h-7 phone:w-7 phonexs:h-6 phonexs:w-6 cursor-pointer transition ease-out hover:scale-125"
             onClick={handleLocationClick}
           />
         </button>
@@ -85,7 +83,7 @@ export const Inputs:React.FC = () => {
         <button
           type="button"
           name="metric"
-          className="text-xl text-white font-light transition ease-out hover:scale-125"
+          className="phonexs:text-xl phone:text-2xl text-white font-light transition ease-out hover:scale-125"
           onClick={handleUnitsChange}
         >
           °C
@@ -94,7 +92,7 @@ export const Inputs:React.FC = () => {
         <button
           type="button"
           name="imperial"
-          className="text-xl text-white font-light transition ease-out hover:scale-125"
+          className="phonexs:text-xl phone:text-2xl text-white font-light transition ease-out hover:scale-125"
           onClick={handleUnitsChange}
         >
           °F

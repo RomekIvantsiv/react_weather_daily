@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Forecast } from './Components/Forecast';
-import { Inputs } from './Components/Inputs';
+import { InputAndConfigButtons } from './Components/InputAndConfigButtons';
 import { TemperatureAndDetails } from './Components/TemperatureAndDetails';
 import { TimeAndLocation } from './Components/TimeAndLocation';
 import { TopButtons } from './Components/TopButtons';
@@ -41,9 +41,9 @@ export const App = () => {
   };
 
   return (
-    <div className={`${formatBackgound()} mx-auto max-w-screen-md py-5 px-32 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 mt-0`}>
+    <div className={`${formatBackgound()} mx-auto max-w-screen-tablet700 py-5 px-32 phonexs:px-3 phone:px-9 tablet:px-12 tablet550:px-16 tablet600:px-20 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 mt-0`}>
       <TopButtons />
-      <Inputs />
+      <InputAndConfigButtons />
 
       {weather && (
         <>

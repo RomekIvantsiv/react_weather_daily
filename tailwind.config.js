@@ -4,7 +4,16 @@ module.exports = {
     './src/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
-    extend: {},
+    // extend: {},
+    screens: {
+      phonexs: '320px',
+      phone370: '370px',
+      phone: '430px',
+      tablet: '500px',
+      tablet550: '550px',
+      tablet600: '600px',
+      tablet700: '700px',
+    },
   },
   plugins: [],
   resolve: {

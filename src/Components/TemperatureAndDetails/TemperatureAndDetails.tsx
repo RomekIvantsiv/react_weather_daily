@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { useSelector } from 'react-redux';
+// import { WeatherState } from '../../react-app-env.d';
 import { formatToLocalTime, iconUrlFromCode } from '../../services/weatherService';
 import { getWeatherSelector } from '../../store/selectors';
 import { Loader } from '../Loader';
@@ -32,7 +34,7 @@ export const TemperatureAndDetails:React.FC = () => {
           alt=""
           className="w-20"
         />
-        <p className="text-5xl">{`${temp.toFixed()}°`}</p>
+        <p className="phone:text-5xl phonexs:text-4xl">{`${temp.toFixed()}°`}</p>
 
         <div className="flex flex-col space-y-2">
 
@@ -57,35 +59,44 @@ export const TemperatureAndDetails:React.FC = () => {
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-center space-x-2 text-white text-sm py-3">
+      <div className="flex flex-row flex-wrap items-center justify-center space-x-2 text-white text-sm py-3">
 
-        <UilSun />
-        <p className="font-light">
-          Rise:
-          <span className="font-medium ml-1">{formatToLocalTime(sunrise, timezone, 'hh:mm a')}</span>
-        </p>
-        <p className="font-light">|</p>
+        <div className="flex space-x-2.5">
+          <UilSun />
+          <p className="font-light">
+            Rise:
+            <span className="font-medium ml-1">{formatToLocalTime(sunrise, timezone, 'hh:mm a')}</span>
+          </p>
+          <p className="font-light">|</p>
+        </div>
 
-        <UilSunset />
-        <p className="font-light">
-          Set:
-          <span className="font-medium ml-1">{formatToLocalTime(sunset, timezone, 'hh:mm a')}</span>
-        </p>
-        <p className="font-light">|</p>
+        <div className="flex space-x-2.5">
+          <UilSunset />
+          <p className="font-light">
+            Set:
+            <span className="font-medium ml-1">{formatToLocalTime(sunset, timezone, 'hh:mm a')}</span>
+          </p>
+          <p className="font-light">|</p>
+        </div>
 
-        <UilSun />
-        <p className="font-light">
-          High:
-          <span className="font-medium ml-1">{`${temp_max.toFixed()}°`}</span>
-        </p>
-        <p className="font-light">|</p>
+        <div className="flex space-x-2.5">
+          <UilSun />
+          <p className="font-light">
+            High:
+            <span className="font-medium ml-1">{`${temp_max.toFixed()}°`}</span>
+          </p>
+          <p className="font-light">|</p>
+        </div>
 
-        <UilSun />
-        <p className="font-light">
-          Low:
-          <span className="font-medium ml-1">{`${temp_min.toFixed()}°`}</span>
-        </p>
-        <p className="font-light">|</p>
+        <div className="flex space-x-2.5">
+          <UilSun />
+          <p className="font-light">
+            Low:
+            <span className="font-medium ml-1">{`${temp_min.toFixed()}°`}</span>
+          </p>
+          <p className="font-light">|</p>
+        </div>
+
       </div>
     </div>
   );

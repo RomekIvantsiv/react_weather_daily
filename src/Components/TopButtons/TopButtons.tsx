@@ -13,7 +13,7 @@ export const TopButtons:React.FC = () => {
         <button
           key={city.id}
           type="button"
-          className="text-white text-lg font-medium"
+          className="text-white phone:text-lg phonexs:text-sm font-medium"
           onClick={() => {
             dispatch(setQuery({ q: city.title }));
           }}

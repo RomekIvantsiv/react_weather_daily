@@ -16,16 +16,15 @@ export const TimeAndLocation:React.FC = () => {
   const {
     dt, timezone, name, country,
   } = weather;
-
   return (
     <div>
       <div className="flex items-center justify-center my-6">
-        <p className="text-white text-xl font-extralight">
+        <p className="text-white phone:text-xl phonexs:text-s font-extralight">
           {formatToLocalTime(dt, timezone)}
         </p>
       </div>
       <div className="flex items-center justify-center my-3">
-        <p className="text-white text-3xl font-medium py-3">
+        <p className="text-white phone:text-3xl phonexs:text-2xl font-medium py-3">
           {`${name}, ${country}`}
         </p>
       </div>

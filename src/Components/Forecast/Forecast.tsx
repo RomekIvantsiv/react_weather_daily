@@ -9,8 +9,8 @@ interface Props {
 
 export const Forecast:React.FC<Props> = ({ title, items }) => {
   return (
-    <div>
-      <div className="flex items-center justify-start mt-6">
+    <div className="max-w-lg">
+      <div className="flex items-center justify-start mt-6 ">
         <p className="text-white font-medium uppercase">{title}</p>
       </div>
       <hr className="my-2" />
@@ -18,7 +18,7 @@ export const Forecast:React.FC<Props> = ({ title, items }) => {
       <div className="flex flex-row items-center justify-between text-white">
         {items.map((item) => (
           <div key={item.title} className="flex flex-col items-center justify-center">
-            <p className="font-white text-sm">
+            <p className="font-white text-xs phone:text-sm">
               {item.title}
             </p>
             <img
